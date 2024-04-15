@@ -64,7 +64,7 @@ $park_filter = $_GET['parking_filter'];
             <br>
             <button type="submit">Invia</button>
         </form>
-        <table class="table col-4">
+        <table class="table table-dark table-striped col-4">
             <thead>
                 <tr>
                     <th scope="col">#</th>
