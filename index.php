@@ -40,6 +40,8 @@ $hotels = [
 
 ];
 
+$park_filter = $_GET['parking_filter'];
+
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +63,11 @@ $hotels = [
 
     <?php
     foreach ($hotels as $hotel) {
-        echo $hotel['name'] . ' ' . $hotel['vote'] . ' ' . $hotel['distance_to_center'] . '<br>';
+        if ($park_filter && $hotel['parking']) {
+            echo $hotel['name'] . ' ' . $hotel['vote'] . ' ' . $hotel['distance_to_center'] . '<br>';
+        } elseif (!$park_filter) {
+            echo $hotel['name'] . ' ' . $hotel['vote'] . ' ' . $hotel['distance_to_center'] . '<br>';
+        }
     }
     ?>
 
