@@ -62,6 +62,7 @@ $park_filter = $_GET['parking_filter'];
         <form action="" method="get" class="mb-5">
             <label for="parking_filter">Spunta per visualizzare solo hotel con parcheggi</label>
             <input type="checkbox" name="parking_filter">
+            <br>
             <button type="submit">Invia</button>
         </form>
         <table class="table col-4">
