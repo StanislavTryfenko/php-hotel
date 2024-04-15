@@ -57,7 +57,6 @@ $park_filter = $_GET['parking_filter'];
 </head>
 
 <body>
-
     <div class="container mt-5">
         <form action="" method="get" class="mb-5">
             <label for="parking_filter">Spunta per visualizzare solo hotel con parcheggi</label>
@@ -77,14 +76,7 @@ $park_filter = $_GET['parking_filter'];
             <tbody>
                 <?php
                 foreach ($hotels as $i => $hotel) {
-                    if ($park_filter && $hotel['parking']) {
-                        echo '<tr>';
-                        echo '<th scope="row">' . $i . '</th>';
-                        echo '<td>' . $hotel['name'] . '</td>';
-                        echo '<td>' . $hotel['vote'] . '</td>';
-                        echo '<td>' . $hotel['distance_to_center'] . '</td>';
-                        echo '</tr>';
-                    } elseif (!$park_filter) {
+                    if (($park_filter && $hotel['parking']) || (!$park_filter)) {
                         echo '<tr>';
                         echo '<th scope="row">' . $i . '</th>';
                         echo '<td>' . $hotel['name'] . '</td>';
@@ -92,6 +84,17 @@ $park_filter = $_GET['parking_filter'];
                         echo '<td>' . $hotel['distance_to_center'] . '</td>';
                         echo '</tr>';
                     }
+                    //Giuliano forse preferivi :
+                    /* if ($park_filter && !$hotel['parking']) {
+                        continue;
+                    }
+                    echo '<tr>';
+                    echo '<th scope="row">' . $i . '</th>';
+                    echo '<td>' . $hotel['name'] . '</td>';
+                    echo '<td>' . $hotel['vote'] . '</td>';
+                    echo '<td>' . $hotel['distance_to_center'] . '</td>';
+                    echo '</tr>'; */
+                    //ma io adoro gli operatori logici che rendono tutto molto più leggibile nelle condizioni :P
                 }
                 ?>
             </tbody>
